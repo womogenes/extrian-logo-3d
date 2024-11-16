@@ -1,7 +1,7 @@
 // Scene setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  75,
+  35,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -21,8 +21,8 @@ light2.position.set(50, -50, -50);
 scene.add(light2);
 
 // Load GLB model
-let toRotX = ((1 / 2) * 0.05 - 0.2) * Math.PI;
-let toRotY = ((1 / 2) * 0.05 - 0.2) * Math.PI;
+let toRotX = -0.1 * Math.PI;
+let toRotY = -0.15 * Math.PI;
 let toRotZ = 0;
 
 const loader = new THREE.GLTFLoader();
@@ -56,9 +56,9 @@ textureLoader.load('./roof_lights.jpg', function (texture) {
 });
 
 // Camera position
-camera.position.x = 0.5;
-camera.position.y = -0.5;
-camera.position.z = 6.5;
+camera.position.x = 0;
+camera.position.y = 0;
+camera.position.z = 15;
 
 // Orbit Controls
 // const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -77,8 +77,8 @@ function animate() {
   }
 
   document.addEventListener('mousemove', (event) => {
-    const mouseX = (event.clientX / window.innerWidth) * 0.05 - 0.2;
-    const mouseY = (event.clientY / window.innerHeight) * 0.05 - 0.2;
+    const mouseX = (event.clientX / window.innerWidth - 1 / 2) * 0.2 - 0.1;
+    const mouseY = (event.clientY / window.innerHeight - 1 / 2) * 0.2 - 0.15;
 
     toRotY = mouseX * Math.PI;
     toRotX = mouseY * Math.PI;
