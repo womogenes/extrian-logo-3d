@@ -56,7 +56,9 @@ textureLoader.load('./roof_lights.jpg', function (texture) {
 });
 
 // Camera position
-camera.position.z = 10;
+camera.position.x = 0.5;
+camera.position.y = -0.5;
+camera.position.z = 6.5;
 
 // Orbit Controls
 // const controls = new THREE.OrbitControls(camera, renderer.domElement);
